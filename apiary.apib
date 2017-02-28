@@ -5,6 +5,68 @@ HOST: http://polls.apiblueprint.org/
 
 Multiplayer RPG is an API for a new exciting multiplayer RPG.
 
+## Users [/users/{playerID}]
+
+### Retrieves a player's data with the score [GET]
+
++ Response 200 (application/json)
+
+        {
+            "userName":"halzate",
+            "score": 900
+        }
+
+### Stores player's new score [POST]
+
++ Request (application/json)
+
+        {
+            "score": 1000
+        }
+
++ Response 200
+
+## User leaderboard [/leaderboard/{playerID}]
+
+### Retrieves a player's leaderboard position [GET]
+
++ Response 200 (application/json)
+
+        {
+            "position": 1
+        }
+
+## Global leaderboard [/leaderboard{?pageSize,page}]
+
+### Retrives paged leaderboard starting from the first player [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id":"50AF87",
+                "userName":"halzate",
+                "score":900,
+                "position":1
+            },
+
+            {
+                "id":"51BF88",
+                "userName":"rompeqkas",
+                "score":750,
+                "position":2
+            },
+
+            {
+                "id":"52CF89",
+                "userName":"smontes",
+                "score":550,
+                "position":3
+            }
+        ]
+
+--------------------------------------------------------------------------------
+
 ## Character services [/character/{playerID}]
 
 ### Unlock character [POST]
