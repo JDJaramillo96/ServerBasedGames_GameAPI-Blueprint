@@ -15,7 +15,7 @@ Multiplayer RPG is an API for a new exciting multiplayer RPG.
             "type": "warrior",
             "element": "fire"
         }
-        
+
 + Response 200 (application/json)
 
         {
@@ -29,7 +29,7 @@ Multiplayer RPG is an API for a new exciting multiplayer RPG.
             "element": "fire"
         }
 
-## Character stats services [/stats/{playerID}/{character}]
+## Character stats services [/stats/{playerID}{?characterType,characterElement}]
 
 ### Add stats points [POST]
 
@@ -39,8 +39,19 @@ Multiplayer RPG is an API for a new exciting multiplayer RPG.
             "statToIncrease": "attack",
             "pointsToAdd": 5
         }
-        
-+ Response 200
+
++ Response 200 (application/json)
+
+        {
+            "type": "warrior",
+            "level":1,
+            "life": 500,
+            "attack": 30,
+            "defense": 20,
+            "magicAttack": 5,
+            "magicDefense": 5,
+            "element": "fire"
+        }
 
 ## Team services [/team/{playerID}]
 
@@ -59,7 +70,7 @@ Multiplayer RPG is an API for a new exciting multiplayer RPG.
                 "magicDefense": 5,
                 "element": "fire"
             },
-            
+
             {
                 "type": "archer",
                 "level":1,
@@ -70,7 +81,7 @@ Multiplayer RPG is an API for a new exciting multiplayer RPG.
                 "magicDefense": 10,
                 "element": "grass"
             },
-            
+
             {
                 "type": "necromancer",
                 "level":1,
@@ -93,13 +104,13 @@ Multiplayer RPG is an API for a new exciting multiplayer RPG.
                 "level":1,
                 "element": "water"
             },
-            
+
             {
                 "type": "archer",
                 "level":1,
                 "element": "fire"
             },
-            
+
             {
                 "type": "necromancer",
                 "level":1,
@@ -107,7 +118,42 @@ Multiplayer RPG is an API for a new exciting multiplayer RPG.
             }
         ]
 
-+ Response 200
++ Response 200 (application/json)
+
+        [
+            {
+                "type": "archer",
+                "level":1,
+                "life": 300,
+                "attack": 15,
+                "defense": 15,
+                "magicAttack": 10,
+                "magicDefense": 10,
+                "element": "water"
+            },
+
+            {
+                "type": "archer",
+                "level":1,
+                "life": 300,
+                "attack": 15,
+                "defense": 15,
+                "magicAttack": 10,
+                "magicDefense": 10,
+                "element": "fire"
+            },
+
+            {
+                "type": "necromancer",
+                "level":1,
+                "life": 250,
+                "attack": 10,
+                "defense": 15,
+                "magicAttack": 30,
+                "magicDefense": 20,
+                "element": "grass"
+            }
+        ]
 
 ## Battle services [/battle/{battleID}{?winnerID,losserID}]
 
